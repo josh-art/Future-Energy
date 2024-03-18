@@ -3,7 +3,7 @@
 #build the project
 
 echo "building the project..."
-python3.9 -m pip install -r requirements.txt
+python3.9 -m pip install -r requirements
 
 echo "make migrations..."
 python3.9 manage.py makemigrations 
