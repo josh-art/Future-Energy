@@ -1,7 +1,6 @@
 #/bin/bsh
 
 #build the project
-python3.9 -m pip --upgrade pip
 
 echo "building the project..."
 python3.9 -m pip install -r requirements.txt
