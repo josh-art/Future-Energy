@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block header %}
+{% block title %}
+Projects
+{% endblock title %}
+
+
+<style>
+
+
+</style>
+
+{% endblock header %}
+<body>
+{% block content %}
+<center>
+{% for pics in gallary %}
+<table style=""width="100%">
+    <tr style="width:100%" >
+        <td width="80%">
+<div class="container">
+
+  <!-- Full-width images with number text -->
+     <div class="slider" id="main-slider"style="margin-top:10px"><!-- outermost container element -->
+    <div class="slider-wrapper"><!-- innermost wrapper element -->
+
+  <div class="mySlides">
+
+    <div class="numbertext"style="color: black;
+  font-size: 20px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 40px;left:45px;font-weight: bold;">{{ forloop.counter }}</div>
+     {% if pics.image %}
+        <img src="{{ pics.image.url }}" alt=""width="100%"height="570"style="margin-top:40px" class="slide" >
+        {% endif %}
+       {% if pics.video %}
+        <video src="{{pics.video.url}}" controls height="100%" width="100%"></video>
+        {% endif %}
+<div class="caption-container"style="background-color:pink">
+    <span><p><h5 style="font-size:26px;text-align:center">-{{pics.title}}</h5></p></span>
+    <span><p><h5 style="text-align:center">-{{pics.body}}</h5></p></span>
+    Posted on: {{pics.created_date | date:"F d, Y"}}
+</div>
+  </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <p style=""class="pre">Prev</p>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <p style=""class="nex">Next</p>
+
+  <!-- Image text -->
+
+{% endfor %}
+        </td></tr></table></center>
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+
+(function() {
+
+	function Slideshow( element ) {
+		this.el = document.querySelector( element );
+		this.init();
+	}
+
+	Slideshow.prototype = {
+		init: function() {
+			this.wrapper = this.el.querySelector( ".slider-wrapper" );
+			this.slides = this.el.querySelectorAll( ".slide" );
+			this.previous = this.el.querySelector( ".slider-previous" );
+			this.next = this.el.querySelector( ".slider-next" );
+			this.index = 0;
+			this.total = this.slides.length;
+			this.timer = null;
+
+			this.action();
+			this.stopStart();
+		},
+		_slideTo: function( slide ) {
+			var currentSlide = this.slides[slide];
+			currentSlide.style.opacity = 1;
+
+			for( var i = 0; i < this.slides.length; i++ ) {
+				var slide = this.slides[i];
+				if( slide !== currentSlide ) {
+					slide.style.opacity = 0;
+				}
+			}
+		},
+		action: function() {
+			var self = this;
+			self.timer = setInterval(function() {
+				self.index++;
+				if( self.index == self.slides.length ) {
+					self.index = 0;
+				}
+				self._slideTo( self.index );
+
+			}, 4000);
+		},
+		stopStart: function() {
+			var self = this;
+			self.el.addEventListener( "mouseover", function() {
+				clearInterval( self.timer );
+				self.timer = null;
+
+			}, false);
+			self.el.addEventListener( "mouseout", function() {
+				self.action();
+
+			}, false);
+		}
+
+
+	};
+
+	document.addEventListener( "DOMContentLoaded", function() {
+
+		var slider = new Slideshow( "#main-slider" );
+
+	});
+
+
+})();
+
+</script>
+</body>
+{% endblock content %}
+</html>
