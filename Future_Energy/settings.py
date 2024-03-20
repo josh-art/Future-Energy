@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'rmyefp4$q=f&#asd98jfu+gzl$^t2ds3$ta5lo3d7)$l6yi&0g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['* ']
+ALLOWED_HOSTS = ['.vercel.app', '*']
 
 
 # Application definition
