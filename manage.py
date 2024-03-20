@@ -5,7 +5,11 @@ import sys
 
 
 def main():
+<<<<<<< HEAD
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Maggie_.settings')
+=======
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Future_Energy.settings')
+>>>>>>> 79f5c16878b23459501ba42651c472ebad70d3c7
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
