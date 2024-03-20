@@ -1,8 +1,6 @@
 #/bin/bsh
 
 #build the project
-set -o errexit
-
 
 pip install -r requirements.txt
 
