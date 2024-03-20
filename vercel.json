@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "Future_Energy/wsgi.py",
+      "src": "Future-Energy/wsgi.py",
       "use": "@vercel/python",
       "config": {
         "maxLamdaSize": "15mb", "runtime": "python3.9"}
@@ -22,7 +22,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "Future_Energy/wsgi.py"
+      "dest": "Future-Energy/wsgi.py"
     }
   ]
 }
