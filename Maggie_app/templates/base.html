@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="{% static 'main.min.css' %}">
     <link href="{% static 'department/css/bootstrap.css' %}" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -246,18 +247,17 @@ section {
     <div class="heading">
         <img src="{% static 'img/renewable.png' %}"height="500px" width="100%" alt="Bground" style="margin-top:auto">
 <div class="top-right">
-    <table width="450px"style="border-style: groove">
-        <tr style="background-color:#00FF00">
-            <td style=""width="">
-                <img src="{% static 'img/solar.png' %}"height="80px"width="105px"style="position:absolute;top:2px;margin-left:18px">
-            </td>
+    <table width="300px"style="border-style: groove;float:right">
+        <tr style="background-color:white">
             <td>
-                <h1 class="right"align="right" style="font-size:55px;top:20px;font-family:serif">Future Energy</h1>
+                <img src="{% static 'img/solar.png' %}"height="80px"width="120px"style="position:absolute;top:2px;margin-left:5px">
+                </td>
+            <td>
+                <h1 class="right"align="right" style="font-size:65px;top:20px;font-family:serif">Future<br>
+                <i>Energy</i></h1>
             </td>
         </tr>
     </table>
-        <p align="right" style="float:right;color:red;top:2px;font-size:25px">
-                <b><i>For your quality and trusted<br>Solar energy solutions</i></b></p>
 
 
 </div>
@@ -296,14 +296,12 @@ section {
            <p style="font-size:30px">
              We are the best trusted solar dealers countrywide
            </p>
+            <p align="right" style="float:right;color:red;top:2px;font-size:25px">
+                <b><i>For your quality and trusted Solar energy solutions</i></b></p>
         </div>
 
     </div></section>
- <div class="bottom-left">
-    <h3 style="text-align: center;"><a href="{% url 'index' %}">Our Gallary</a> </h3>
-</div>
-    <div class=""style="padding-bottom:30px">
-</div>
+
 <hr style="font-size:50px;background-color:green;">
 {% block content %}{% endblock %}
 <hr style="font-size:40px;background-color:blue;">
