@@ -25,7 +25,7 @@ SECRET_KEY = 'rmyefp4$q=f&#asd98jfu+gzl$^t2ds3$ta5lo3d7)$l6yi&0g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '*']
 
 
 
@@ -79,10 +79,15 @@ WSGI_APPLICATION = 'Future-Energy.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': 'PZpB2Q5UgkvF',
+        'HOST': 'ep-jolly-snowflake-a76nmcb2-pooler.ap-southeast-2.aws.neon.tech',
+        'POSRT': '5432',
     }
 }
+
 
 
 # Password validation
